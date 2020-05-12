@@ -1,3 +1,4 @@
+import 'package:employees_flutter/gridview_builder.dart';
 import 'package:employees_flutter/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: HomePage(),
+      home: ListGridDemo(),
     );
   }
 }

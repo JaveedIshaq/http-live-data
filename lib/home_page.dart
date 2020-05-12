@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.teal[100],
       appBar: AppBar(
         title: Text("Employess"),
       ),
@@ -44,13 +45,61 @@ class _HomePageState extends State<HomePage> {
             return ListView.builder(
                 itemCount: snapshot.data.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: Text("${snapshot.data[index].departmentname}"),
-                    title: Text('${snapshot.data[index].employerName}'),
-                    subtitle:
-                        Text("Employer Id: ${snapshot.data[index].employerId}"),
-                    trailing:
-                        Text("Salary: ${snapshot.data[index].employersalary}"),
+                  return Card(
+                    margin: EdgeInsets.all(0),
+                    elevation: 0,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        children: <Widget>[
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              // ListTile(
+                              //   leading:
+                              //       Text("${snapshot.data[index].departmentname}"),
+                              //   title: Text('${snapshot.data[index].employerName}'),
+                              //   subtitle: Text(
+                              //       "Employer Id: ${snapshot.data[index].employerId}"),
+                              //   trailing: Text(
+                              //       "Salary: ${snapshot.data[index].employersalary}"),
+                              // ),
+                              Column(
+                                children: <Widget>[
+                                  Text('${snapshot.data[index].employerName}'),
+                                  SizedBox(height: 5.0),
+                                  Text(
+                                    "${snapshot.data[index].departmentname}",
+                                    style: TextStyle(
+                                        fontSize: 20,
+                                        color: Colors.black87,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                  Text(
+                                    "Salary: ${snapshot.data[index].employersalary}",
+                                    style: TextStyle(
+                                        fontSize: 12, color: Colors.grey),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(right: 10.0),
+                                child: Column(
+                                  children: <Widget>[
+                                    Text("15m"),
+                                    Icon(Icons.star)
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          Divider(
+                            height: 5,
+                            color: Colors.black87,
+                          )
+                        ],
+                      ),
+                    ),
                   );
                 });
           } else {
